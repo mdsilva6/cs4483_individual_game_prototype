@@ -15,7 +15,6 @@ public class PlayerInput : MonoBehaviour, IPlayerInput
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
         UnityEngine.Debug.Log("Hello there.");
     }
 
@@ -41,16 +40,4 @@ public class PlayerInput : MonoBehaviour, IPlayerInput
         OnMovementDirectionInput?.Invoke(movementDirection);
     }
 
-    //void OnCollisionEnter(Collision collisionInfo)
-    //{
-    //    UnityEngine.Debug.Log("We hit something");
-    //    UnityEngine.Debug.Log("We hit " + collisionInfo.collider.tag);
-
-    //    if (Input.GetKey("u") && collisionInfo.collider.tag == "Orb")
-    //    {
-    //        UnityEngine.Debug.Log("Picking up orb");
-
-    //    }
-
-    //}
 }
