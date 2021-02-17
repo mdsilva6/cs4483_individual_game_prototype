@@ -26,20 +26,21 @@ public class Interactable : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        
+        Debug.Log(gameObject.name + " loaded");
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         if (isFocus)
         {
-            float distance = Vector3.Distance(player.position, transform.position);
+            float distance = Vector3.Distance(player.position, gameObject.transform.position);
             if (distance <= radius)
             {
-                if (!isInteracting) {
+                if (!isInteracting)
+                {
                     Interact();
                     isInteracting = true;
                 }
