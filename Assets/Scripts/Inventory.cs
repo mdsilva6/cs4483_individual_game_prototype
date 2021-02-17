@@ -18,12 +18,24 @@ public class Inventory : MonoBehaviour
     
     public List<Item> items = new List<Item>();
 
-    public void AddToInventory(Item item)
+    public int inventoryCapacity = 30;
+
+    public bool AddToInventory(Item item)
     {
         if (!item.isDefaultItem)
         {
-            items.Add(item);
+            if (items.Count < inventoryCapacity)
+            {
+                items.Add(item);
+                return true;
+            }
+            else
+            {
+                Debug.Log("Inventory full");
+                return false;
+            }
         }
+        return true;
     }
 
     public void RemoveFromInventory(Item item)
