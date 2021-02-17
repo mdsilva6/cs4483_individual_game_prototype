@@ -6,6 +6,10 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
 
+    public GameObject inventoryPanel;
+
+    public bool inventoryOpen = false;
+
     void Awake()
     {
         if (instance != null)
@@ -15,6 +19,45 @@ public class Inventory : MonoBehaviour
         }
         instance = this;
     }
+
+    void Start()
+    {
+        inventoryPanel.SetActive(false);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            Debug.Log("I pressed");
+            if (!inventoryOpen)
+            {
+                OpenInventory();
+            }
+            else
+            {
+                CloseInventory();
+                inventoryOpen = false;
+            }
+        }
+    }
+
+    void OpenInventory()
+    {
+        inventoryPanel.SetActive(true);
+        Time.timeScale = 0f;
+        inventoryOpen = true;
+    }
+
+    void CloseInventory()
+    {
+        inventoryPanel.SetActive(false);
+        Time.timeScale = 1f;
+        inventoryOpen = false;
+    }
+
+    public delegate void OnInventoryChanged();
+    public OnInventoryChanged onInventoryChangedCallback;
     
     public List<Item> items = new List<Item>();
 
@@ -27,6 +70,10 @@ public class Inventory : MonoBehaviour
             if (items.Count < inventoryCapacity)
             {
                 items.Add(item);
+                if (onInventoryChangedCallback != null)
+                {
+                    onInventoryChangedCallback.Invoke();
+                }
                 return true;
             }
             else
@@ -41,5 +88,9 @@ public class Inventory : MonoBehaviour
     public void RemoveFromInventory(Item item)
     {
         items.Remove(item);
+        if (onInventoryChangedCallback != null)
+        {
+            onInventoryChangedCallback.Invoke();
+        }
     }
 }
