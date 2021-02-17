@@ -2,8 +2,8 @@
 
 Table of Contents
 1. [Gameplay](#Gameplay)
-2. [Player Actions](#Player Actions)
-3. [Combat Skill Trees](#Combat Skill Trees)
+2. [Player Actions](#PlayerActions)
+3. [Combat Skill Trees](#CombatSkillTrees)
 4. [Environment](#Environment)
 
 ## Gameplay
