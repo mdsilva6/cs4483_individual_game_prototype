@@ -14,6 +14,8 @@ public class AgentMovement : MonoBehaviour
 
     private bool canWalk = true;
 
+    public bool isMoving = false;
+
         // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +27,7 @@ public class AgentMovement : MonoBehaviour
     void Update()
     {
 
-        float rotation = Input.GetAxis("Horizontal") * 3.0f;
+        float rotation = Input.GetAxis("Horizontal") * 1.0f;
         transform.Rotate(0, rotation, 0);
 
         if (movementVector.magnitude > 0)
@@ -48,11 +50,13 @@ public class AgentMovement : MonoBehaviour
                 run = 1;
             }
             animator.SetFloat("forward", 1 + run);
+            isMoving = true;
         }
         else
         {
             movementVector = Vector3.zero;
             animator.SetFloat("forward", 0);
+            isMoving = false;
         }
     }
 

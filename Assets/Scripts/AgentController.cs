@@ -12,6 +12,8 @@ public class AgentController : MonoBehaviour
 
     Camera cam;
 
+    public Interactable focus;
+
     private void Start()
     {
         cam = Camera.main;
@@ -34,8 +36,33 @@ public class AgentController : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 100))
             {
                 Debug.Log("Hit " + hit.collider.name + " " + hit.point);
-                autoMove.MoveToPoint(hit.point);
+                //autoMove.MoveToPoint(hit.point);
+
+                Interactable interactable = hit.collider.GetComponent<Interactable>();
+                if (interactable == GetFocus())
+                {
+                    UnsetFocus(interactable);
+                } else if (interactable != null) {
+                    SetFocus(interactable);
+                }
             }
         }
+    }
+
+    Interactable GetFocus()
+    {
+        return focus;
+    }
+
+    void SetFocus(Interactable interactableObject)
+    {
+        focus = interactableObject;
+        interactableObject.OnFocused(transform);
+    }
+
+    void UnsetFocus(Interactable interactableObject)
+    {
+        interactableObject.OnDefocused();
+        focus = null;
     }
 }
