@@ -1,6 +1,6 @@
 # cs4483_individual_game_prototype
 
-Table of Contents
+## Table of Contents
 1. [Gameplay](#Gameplay)
 2. [Player Actions](#PlayerActions)
 3. [Combat Skill Trees](#CombatSkillTrees)
