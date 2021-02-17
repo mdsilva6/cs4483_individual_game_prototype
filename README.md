@@ -1,14 +1,12 @@
 # cs4483_individual_game_prototype
 
-#  Abridged Abyss
-
 ### Table of Contents
 1. [Challenges](#Challenges)
 2. [Player Actions](#PlayerActions)
 3. [Combat Skill Trees](#CombatSkillTrees)
 4. [Environment](#Environment)
 
-# Gameplay
+# Abridged Abyss Gameplay
 
 ## 1. Challenges
 **The first two elements relate to the core mechanic of time management as the player should aim to limit the amount of time that they are exposed in the wasteland.**  
