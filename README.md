@@ -1,5 +1,7 @@
 # cs4483_individual_game_prototype
 
+#  Abridged Abyss
+
 ### Table of Contents
 1. [Challenges](#Challenges)
 2. [Player Actions](#PlayerActions)
