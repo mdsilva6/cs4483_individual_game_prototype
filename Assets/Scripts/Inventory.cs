@@ -29,7 +29,6 @@ public class Inventory : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            Debug.Log("I pressed");
             if (!inventoryOpen)
             {
                 OpenInventory();
@@ -45,14 +44,14 @@ public class Inventory : MonoBehaviour
     void OpenInventory()
     {
         inventoryPanel.SetActive(true);
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
         inventoryOpen = true;
     }
 
     void CloseInventory()
     {
         inventoryPanel.SetActive(false);
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
         inventoryOpen = false;
     }
 
