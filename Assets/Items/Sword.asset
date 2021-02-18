@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f03dc517da526ae47a902b5a701170cc, type: 3}
-  m_Name: New Item
+  m_Script: {fileID: 11500000, guid: a086c1eb3003fe147ac85f4046de90b8, type: 3}
+  m_Name: Sword
   m_EditorClassIdentifier: 
-  name: Helmet
+  name: New Item
   icon: {fileID: 0}
   isDefaultItem: 0
+  equipSlot: 3
+  armorModifier: 0
+  damageModifier: 3
