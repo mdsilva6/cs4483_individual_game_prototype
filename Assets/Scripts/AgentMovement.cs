@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class AgentMovement : MonoBehaviour
@@ -8,7 +9,8 @@ public class AgentMovement : MonoBehaviour
 
     CharacterController controller;
     Animator animator;
-    public float rotationSpeed, movementSpeed, gravity = 20;
+    public float rotationSpeed, gravity = 20f;
+    public float movementSpeed = 2f;
     Vector3 movementVector = Vector3.zero;
     private float desiredRotationAngle = 0;
 
@@ -16,17 +18,22 @@ public class AgentMovement : MonoBehaviour
 
     public bool isMoving = false;
 
-        // Start is called before the first frame update
+    // Start is called before the first frame update
+    const float locomationAnimationSmoothTime = .1f;
+
+    NavMeshAgent agent;
+
     void Start()
     {
+        agent = GetComponent<NavMeshAgent>();
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        controller.enabled = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-
         float rotation = Input.GetAxis("Horizontal") * 1.0f;
         transform.Rotate(0, rotation, 0);
 
@@ -35,6 +42,7 @@ public class AgentMovement : MonoBehaviour
             var animationSpeedMultiplier = SetCorrectAnimation();
             RotateAgent();
             movementVector *= animationSpeedMultiplier;
+            Debug.Log("Moving character");
         }
         controller.Move(movementVector * Time.deltaTime);
     }
@@ -43,19 +51,19 @@ public class AgentMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W) && canWalk)
         {
-            movementVector = transform.forward * movementSpeed;
+            movementVector = transform.forward;
             float run = 0;
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 run = 1;
             }
-            animator.SetFloat("forward", 1 + run);
+            animator.SetFloat("speedPercent", 1 + run);
             isMoving = true;
         }
         else
         {
             movementVector = Vector3.zero;
-            animator.SetFloat("forward", 0);
+            animator.SetFloat("speedPercent", 0);
             isMoving = false;
         }
     }
@@ -80,25 +88,32 @@ public class AgentMovement : MonoBehaviour
 
     private float SetCorrectAnimation()
     {
-        float currentAnimationSpeed = animator.GetFloat("forward");
-        if (desiredRotationAngle > 10 || desiredRotationAngle < -10)
+        float currentAnimationSpeed = animator.GetFloat("speedPercent");
+        if (currentAnimationSpeed != 0)
         {
-            if (currentAnimationSpeed < 0.5f)
+            if (desiredRotationAngle > 10 || desiredRotationAngle < -10)
             {
-                currentAnimationSpeed += Time.deltaTime * 2;
-                currentAnimationSpeed = Mathf.Clamp(currentAnimationSpeed, 0, 0.5f);
+                if (currentAnimationSpeed < 0.5f)
+                {
+                    currentAnimationSpeed += Time.deltaTime * 2;
+                    currentAnimationSpeed = Mathf.Clamp(currentAnimationSpeed, 0, 0.5f);
+                }
+            }
+            else
+            {
+                if (currentAnimationSpeed < 1)
+                {
+                    currentAnimationSpeed += Time.deltaTime * 2;
+                }
+                else
+                {
+                    currentAnimationSpeed = 1;
+                }
             }
         }
         else
         {
-            if (currentAnimationSpeed < 1)
-            {
-                currentAnimationSpeed += Time.deltaTime * 2;
-            }
-            else
-            {
-                currentAnimationSpeed = 1;
-            }
+            Debug.LogError("speedPercent is 0");
         }
         return currentAnimationSpeed;
     }
@@ -116,11 +131,11 @@ public class AgentMovement : MonoBehaviour
      
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("collision detected");
-        collision.collider.enabled = false;
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    Debug.Log("collision detected");
+    //    collision.collider.enabled = false;
+    //}
 
     private void PickUpOrb(GameObject gameObject)
     {

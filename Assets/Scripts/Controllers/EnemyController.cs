@@ -24,21 +24,28 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float distance = Vector3.Distance(target.position, transform.position);
-
-        if (distance <= lookRadius)
+        if (target.position != null)
         {
-            agent.SetDestination(target.position);
+            float distance = Vector3.Distance(target.position, transform.position);
 
-            if (distance <= agent.stoppingDistance)
+            if (distance <= lookRadius)
             {
-                CharacterStats targetStats = target.GetComponent<CharacterStats>();
-                if (targetStats != null)
+                agent.SetDestination(target.position);
+
+                if (distance <= agent.stoppingDistance)
                 {
-                    combat.Attack(targetStats);
+                    CharacterStats targetStats = target.GetComponent<CharacterStats>();
+                    if (targetStats != null)
+                    {
+                        combat.Attack(targetStats);
+                    }
+                    FaceTarget();
                 }
-                FaceTarget();
             }
+        }
+        else
+        {
+            Debug.LogError("transform.position is null");
         }
     }
 
