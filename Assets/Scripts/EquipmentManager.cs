@@ -63,6 +63,10 @@ public class EquipmentManager : MonoBehaviour
     {
         if (currentEquipment[slotIndex] != null)
         {
+            if (currentMeshes[slotIndex] != null)
+            {
+                Destroy(currentMeshes[slotIndex].gameObject);
+            }
             Equipment currentlyEquiped = currentEquipment[slotIndex];
             inventory.AddToInventory(currentlyEquiped);
 
