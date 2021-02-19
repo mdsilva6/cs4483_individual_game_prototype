@@ -34,7 +34,7 @@ public class AgentMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float rotation = Input.GetAxis("Horizontal") * 1.0f;
+        float rotation = Input.GetAxis("Horizontal") * 0.5f;
         transform.Rotate(0, rotation, 0);
 
         if (movementVector.magnitude > 0)

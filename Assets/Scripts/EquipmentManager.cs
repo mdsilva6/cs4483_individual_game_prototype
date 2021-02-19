@@ -19,7 +19,9 @@ public class EquipmentManager : MonoBehaviour
 
     }
 
+    public SkinnedMeshRenderer targetMesh;
     Equipment[] currentEquipment;
+    SkinnedMeshRenderer[] currentMeshes;
 
     Inventory inventory;
 
@@ -28,6 +30,7 @@ public class EquipmentManager : MonoBehaviour
         inventory = Inventory.instance;
         int numSlots = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
         currentEquipment = new Equipment[numSlots];
+        currentMeshes = new SkinnedMeshRenderer[numSlots];
     }
 
     public void Equip(Equipment newEquipment)
@@ -48,6 +51,12 @@ public class EquipmentManager : MonoBehaviour
         }
 
         currentEquipment[slotIndex] = newEquipment;
+        SkinnedMeshRenderer newMesh = Instantiate<SkinnedMeshRenderer>(newEquipment.mesh);
+        newMesh.transform.parent = targetMesh.transform;
+
+        newMesh.bones = targetMesh.bones;
+        newMesh.rootBone = targetMesh.rootBone;
+        currentMeshes[slotIndex] = newMesh;
     }
 
     public void Unequip(int slotIndex)
