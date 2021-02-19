@@ -19,6 +19,7 @@ public class EquipmentManager : MonoBehaviour
 
     }
 
+    public Equipment[] defaultItems;
     public SkinnedMeshRenderer targetMesh;
     Equipment[] currentEquipment;
     SkinnedMeshRenderer[] currentMeshes;
@@ -31,19 +32,14 @@ public class EquipmentManager : MonoBehaviour
         int numSlots = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
         currentEquipment = new Equipment[numSlots];
         currentMeshes = new SkinnedMeshRenderer[numSlots];
+
+        EquipDefaultItems();
     }
 
     public void Equip(Equipment newEquipment)
     {
         int slotIndex = (int)newEquipment.equipSlot;
-
-        Equipment currentlyEquiped = null;
-
-        if (currentEquipment[slotIndex] != null)
-        {
-            currentlyEquiped = currentEquipment[slotIndex];
-            inventory.AddToInventory(currentlyEquiped);
-        }
+        Equipment currentlyEquiped = Unequip(slotIndex);
 
         if (onEquipmentChangedCallback != null)
         {
@@ -60,7 +56,7 @@ public class EquipmentManager : MonoBehaviour
         currentMeshes[slotIndex] = newMesh;
     }
 
-    public void Unequip(int slotIndex)
+    public Equipment Unequip(int slotIndex)
     {
         if (currentEquipment[slotIndex] != null)
         {
@@ -79,8 +75,9 @@ public class EquipmentManager : MonoBehaviour
             }
 
             currentEquipment[slotIndex] = null;
-
+            return currentlyEquiped;
         }
+        return null;
     }
 
     public void UnequipAll()
@@ -89,6 +86,9 @@ public class EquipmentManager : MonoBehaviour
         {
             Unequip(i);
         }
+
+        EquipDefaultItems();
+
     }
 
     void SetEquipmentBlendshapes(Equipment equipment, int weight)
@@ -96,6 +96,14 @@ public class EquipmentManager : MonoBehaviour
         foreach (EquipmentMeshRegion blendShape in equipment.coveredMeshRegion)
         {
             targetMesh.SetBlendShapeWeight((int)blendShape, weight  );  
+        }
+    }
+
+    void EquipDefaultItems()
+    {
+        foreach (Equipment equipment in defaultItems)
+        {
+            Equip(equipment);
         }
     }
 
