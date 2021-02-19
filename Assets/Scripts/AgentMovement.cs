@@ -51,7 +51,6 @@ public class AgentMovement : MonoBehaviour
             var animationSpeedMultiplier = SetCorrectAnimation();
             RotateAgent();
             movementVector *= animationSpeedMultiplier;
-            Debug.Log("Moving character");
         }
         Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * movementVector;
         controller.Move(movementVector * Time.deltaTime);

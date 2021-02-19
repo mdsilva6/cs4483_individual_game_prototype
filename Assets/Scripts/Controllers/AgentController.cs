@@ -35,7 +35,6 @@ public class AgentController : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, 100))
             {
-                Debug.Log("Hit " + hit.collider.name + " " + hit.point);
                 //autoMove.MoveToPoint(hit.point);
 
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
@@ -44,6 +43,7 @@ public class AgentController : MonoBehaviour
                     UnsetFocus(interactable);
                 } else if (interactable != null) {
                     SetFocus(interactable);
+                    Debug.Log("Setting focus: " + hit.collider.name + " " + hit.point);
                 }
             }
         }

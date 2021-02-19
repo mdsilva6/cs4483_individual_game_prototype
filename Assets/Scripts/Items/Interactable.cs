@@ -41,6 +41,7 @@ public class Interactable : MonoBehaviour
             {
                 if (!isInteracting)
                 {
+                    Debug.Log("Interacting");
                     Interact();
                     isInteracting = true;
                 }
@@ -54,6 +55,7 @@ public class Interactable : MonoBehaviour
 
     public void OnFocused(Transform playerTransform)
     {
+        Debug.Log("OnFocused called");
         isFocus = true;
         player = playerTransform;
     }
