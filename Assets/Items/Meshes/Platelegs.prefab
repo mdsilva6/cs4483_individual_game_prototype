@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1396434125964620
+--- !u!1 &3996578207096896362
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4531607999685048}
-  - component: {fileID: 137998090722751696}
+  - component: {fileID: 1597355562092971369}
+  - component: {fileID: 3402901051130325511}
   m_Layer: 0
   m_Name: Platelegs
   m_TagString: Untagged
@@ -17,27 +17,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4531607999685048
+--- !u!4 &1597355562092971369
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1396434125964620}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0000000104295275, y: 0.022049183, z: 0.7242962}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 3996578207096896362}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 0.000000008691273, y: 0.6035802, z: -0.018374318}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!137 &137998090722751696
+--- !u!137 &3402901051130325511
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1396434125964620}
+  m_GameObject: {fileID: 3996578207096896362}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -50,9 +50,10 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 24c002778a8494c46830ec3983719d48, type: 2}
-  - {fileID: 2100000, guid: 40a3cf04f32274a9888a8d9df0f19c74, type: 2}
-  - {fileID: 2100000, guid: 440813a9200ef43bf8c5e33b84436140, type: 2}
+  - {fileID: 1767208302161597261, guid: a5da818a6e54fb9458d9aad2e8e4eda1, type: 3}
+  - {fileID: -4973734387028869240, guid: a5da818a6e54fb9458d9aad2e8e4eda1, type: 3}
+  - {fileID: -5711327222413273588, guid: a5da818a6e54fb9458d9aad2e8e4eda1, type: 3}
+  - {fileID: -1580535799172915004, guid: a5da818a6e54fb9458d9aad2e8e4eda1, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -64,7 +65,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -77,8 +78,12 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300010, guid: b96f12f6108ae4c7c830b53377f99e6c, type: 3}
+  m_Mesh: {fileID: 5633882701226501996, guid: a5da818a6e54fb9458d9aad2e8e4eda1, type: 3}
   m_Bones:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -111,6 +116,6 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: 0.41671836, y: 0.00000025331974, z: 0.017894432}
-    m_Extent: {x: 0.5813053, y: 0.37505096, z: 0.1688487}
+    m_Center: {x: 0.000000002561137, y: -0.0033393328, z: 0.00056161336}
+    m_Extent: {x: 0.0025737484, y: 0.004884151, z: 0.0018986682}
   m_DirtyAABB: 0
