@@ -7,11 +7,19 @@ public class Enemy : Interactable
 {
     PlayerManager playerManager;
     CharacterStats myStats;
+    Animator animator;
 
     void Start()
     {
+        base.Start();
         playerManager = PlayerManager.instance;
         myStats = GetComponent<CharacterStats>();
+        animator = playerManager.player.GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        base.Update();
     }
     
     public override void Interact()
@@ -20,6 +28,7 @@ public class Enemy : Interactable
         CharacterCombat playerCombat = playerManager.player.GetComponent<CharacterCombat>();
         if (playerCombat != null)
         {
+            animator.Play("Punching");
             playerCombat.Attack(myStats);
         }
     }

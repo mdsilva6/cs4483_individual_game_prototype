@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 066dbde51e011694ca419abdbc2d33a3, type: 3}
-  m_Name: Helmet
+  m_Name: Platebody
   m_EditorClassIdentifier: 
-  name: Helmet
-  icon: {fileID: 21300000, guid: 63a13adb2b0e64f20a9b56869ed72751, type: 3}
+  name: Platebody
+  icon: {fileID: 21300000, guid: 0f8810d5e106d4d68bc99d24b20063b0, type: 3}
   isDefaultItem: 0
-  equipSlot: 0
-  armorModifier: 2
-  damageModifier: 1
-  mesh: {fileID: 137783008487227358, guid: 22aecc38d976d47ee8a1048a0a568a7a, type: 3}
-  coveredMeshRegions: 
+  equipSlot: 1
+  armorModifier: 0
+  damageModifier: 3
+  mesh: {fileID: 137860983683025678, guid: 605c662279a464ffea62798a0fbc1314, type: 3}
+  coveredMeshRegions: 0100000002000000

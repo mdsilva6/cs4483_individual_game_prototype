@@ -9,12 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a086c1eb3003fe147ac85f4046de90b8, type: 3}
-  m_Name: Sword
+  m_Script: {fileID: 11500000, guid: 066dbde51e011694ca419abdbc2d33a3, type: 3}
+  m_Name: Default Pants
   m_EditorClassIdentifier: 
-  name: New Item
+  name: Default Pants
   icon: {fileID: 0}
-  isDefaultItem: 0
-  equipSlot: 3
+  isDefaultItem: 1
+  equipSlot: 2
+  mesh: {fileID: 137817538094489068, guid: 1c148571353c84a45aaa8a5d79840410, type: 3}
+  coveredMeshRegions: 00000000
   armorModifier: 0
-  damageModifier: 3
+  damageModifier: 0
