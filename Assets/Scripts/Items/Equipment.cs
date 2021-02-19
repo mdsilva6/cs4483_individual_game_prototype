@@ -7,6 +7,7 @@ public class Equipment : Item
 {
     public EquipmentSlot equipSlot;
     public SkinnedMeshRenderer mesh;
+    public EquipmentMeshRegion[] coveredMeshRegion;
 
     public int armorModifier;
     public int damageModifier;
@@ -20,3 +21,4 @@ public class Equipment : Item
 }
 
 public enum EquipmentSlot { Head, Torso, Legs, Mainhand, Offhand, Feet }
+public enum EquipmentMeshRegion { Legs, Arms, Torso };

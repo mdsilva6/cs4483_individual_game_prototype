@@ -39,7 +39,7 @@ public class EquipmentManager : MonoBehaviour
 
         Equipment currentlyEquiped = null;
 
-        if(currentEquipment[slotIndex] != null)
+        if (currentEquipment[slotIndex] != null)
         {
             currentlyEquiped = currentEquipment[slotIndex];
             inventory.AddToInventory(currentlyEquiped);
@@ -49,6 +49,7 @@ public class EquipmentManager : MonoBehaviour
         {
             onEquipmentChangedCallback.Invoke(newEquipment, currentlyEquiped);
         }
+        SetEquipmentBlendshapes(newEquipment, 100);
 
         currentEquipment[slotIndex] = newEquipment;
         SkinnedMeshRenderer newMesh = Instantiate<SkinnedMeshRenderer>(newEquipment.mesh);
@@ -68,6 +69,7 @@ public class EquipmentManager : MonoBehaviour
                 Destroy(currentMeshes[slotIndex].gameObject);
             }
             Equipment currentlyEquiped = currentEquipment[slotIndex];
+            SetEquipmentBlendshapes(currentlyEquiped, 0);
             inventory.AddToInventory(currentlyEquiped);
 
 
@@ -86,6 +88,14 @@ public class EquipmentManager : MonoBehaviour
         for (int i = 0; i < currentEquipment.Length; i++)
         {
             Unequip(i);
+        }
+    }
+
+    void SetEquipmentBlendshapes(Equipment equipment, int weight)
+    {
+        foreach (EquipmentMeshRegion blendShape in equipment.coveredMeshRegion)
+        {
+            targetMesh.SetBlendShapeWeight((int)blendShape, weight  );  
         }
     }
 

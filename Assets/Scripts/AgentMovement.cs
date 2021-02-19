@@ -19,24 +19,33 @@ public class AgentMovement : MonoBehaviour
     public bool isMoving = false;
 
     // Start is called before the first frame update
-    const float locomationAnimationSmoothTime = .1f;
+    const float smoothTime = 0.1f;
 
-    NavMeshAgent agent;
+    float turnSmoothVelocity;
+
+    Transform cameraTransform;
 
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         controller.enabled = true;
+        cameraTransform = Camera.main.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float rotation = Input.GetAxis("Horizontal") * 0.5f;
-        transform.Rotate(0, rotation, 0);
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
+        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
+
+        float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cameraTransform.rotation.y;
+        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, smoothTime);
+        transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+ 
         if (movementVector.magnitude > 0)
         {
             var animationSpeedMultiplier = SetCorrectAnimation();
@@ -44,6 +53,7 @@ public class AgentMovement : MonoBehaviour
             movementVector *= animationSpeedMultiplier;
             Debug.Log("Moving character");
         }
+        Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * movementVector;
         controller.Move(movementVector * Time.deltaTime);
     }
 
@@ -51,7 +61,8 @@ public class AgentMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W) && canWalk)
         {
-            movementVector = transform.forward;
+            movementVector = cameraTransform.forward;
+            transform.rotation = cameraTransform.rotation;
             float run = 0;
             if (Input.GetKey(KeyCode.LeftShift))
             {
