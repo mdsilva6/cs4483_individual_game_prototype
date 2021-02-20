@@ -28,8 +28,8 @@ public class Enemy : Interactable
         CharacterCombat playerCombat = playerManager.player.GetComponent<CharacterCombat>();
         if (playerCombat != null)
         {
-            animator.Play("Punching");
             playerCombat.Attack(myStats);
+            Debug.Log(myStats.currentHealth.ToString() + " of " + myStats.maxHealth);
         }
     }
 }

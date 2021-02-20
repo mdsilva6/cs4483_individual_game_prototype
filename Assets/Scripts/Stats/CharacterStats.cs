@@ -15,7 +15,7 @@ public class CharacterStats : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage (int damage)
+    public virtual void TakeDamage (int damage)
     {
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
         currentHealth -= damage;
