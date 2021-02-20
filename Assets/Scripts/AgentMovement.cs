@@ -68,6 +68,7 @@ public class AgentMovement : MonoBehaviour
                 run = 1;
             }
             animator.SetFloat("speedPercent", 1 + run);
+            Debug.Log("Setting Animaiton");
             isMoving = true;
         }
         else
