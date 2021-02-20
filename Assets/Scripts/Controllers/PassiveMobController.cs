@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(Enemy))]
-public class EnemyController : MonoBehaviour
+public class PassiveMobController : MonoBehaviour
 {
-    public float lookRadius = 10f;
+    public float lookRadius = 5f;
 
     Transform target;
 
@@ -31,17 +31,12 @@ public class EnemyController : MonoBehaviour
 
             if (distance <= lookRadius)
             {
-                agent.SetDestination(target.position);
+                Vector3 distanceFromPlayer = transform.position - target.transform.position;
 
-                if (distance <= agent.stoppingDistance)
-                {
-                    CharacterStats targetStats = target.GetComponent<CharacterStats>();
-                    if (targetStats != null)
-                    {
-                        combat.Attack(targetStats);
-                    }
-                    FaceTarget();
-                }
+                Vector3 newPosition = transform.position + distanceFromPlayer;
+
+                agent.SetDestination(newPosition);
+
             }
         }
         else

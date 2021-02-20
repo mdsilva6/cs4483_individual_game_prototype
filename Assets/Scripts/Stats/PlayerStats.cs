@@ -43,4 +43,9 @@ public class PlayerStats : CharacterStats
         }
 
     }
+
+    public override void Die()
+    {
+        // play death animation
+    }
 }

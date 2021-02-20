@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(Enemy))]
-public class EnemyController : MonoBehaviour
+public class MixedMobController : MonoBehaviour
 {
-    public float lookRadius = 10f;
+    public float lookRadius = 5f;
 
     Transform target;
 
@@ -14,12 +14,15 @@ public class EnemyController : MonoBehaviour
 
     CharacterCombat combat;
 
+    Enemy thisMob;
+
     // Start is called before the first frame update
     void Start()
     {
         target = PlayerManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
         combat = GetComponent<CharacterCombat>();
+        thisMob = GetComponent<Enemy>();
     }
 
     // Update is called once per frame
@@ -29,19 +32,15 @@ public class EnemyController : MonoBehaviour
         {
             float distance = Vector3.Distance(target.position, transform.position);
 
-            if (distance <= lookRadius)
+            if (distance <= lookRadius && thisMob.isInteracting)
             {
-                agent.SetDestination(target.position);
-
-                if (distance <= agent.stoppingDistance)
+                CharacterStats targetStats = target.GetComponent<CharacterStats>();
+                if (targetStats != null)
                 {
-                    CharacterStats targetStats = target.GetComponent<CharacterStats>();
-                    if (targetStats != null)
-                    {
-                        combat.Attack(targetStats);
-                    }
-                    FaceTarget();
+                    combat.Attack(targetStats);
                 }
+                FaceTarget();
+
             }
         }
         else
