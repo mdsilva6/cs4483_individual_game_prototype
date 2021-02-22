@@ -6,12 +6,20 @@ using UnityEngine.UI;
 public class PlayerStats : CharacterStats
 {
     public Text healthPoints;
+    public Text staminaPoints;
 
+    public int maxStamina = 100;
+    public int currentStamina { get; private set; }
 
+    private void Awake()
+    {
+        currentStamina = maxStamina;
+    }
     void Start()
     {
         EquipmentManager.instance.onEquipmentChangedCallback += OnEquipmentChanged;
         healthPoints.text = currentHealth.ToString();
+        staminaPoints.text = currentStamina.ToString();
     }
 
     void OnEquipmentChanged(Equipment newEquipment, Equipment oldEquipment)
@@ -42,6 +50,26 @@ public class PlayerStats : CharacterStats
             healthPoints.text = "Dead: play death animation";
         }
 
+    }
+
+    void Reengergize(int staminaAmount)
+    {
+        int temp = currentStamina + staminaAmount;
+
+        if (temp > maxStamina)
+        {
+            currentStamina = maxStamina;
+        }
+        else
+        {
+            currentStamina = temp;
+        }
+    }
+
+    public void UseItem(Consumable item)
+    {
+        Heal(item.healthAddValue);
+        Reengergize(item.staminaAddValue);
     }
 
     public override void Die()

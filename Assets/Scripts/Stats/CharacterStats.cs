@@ -28,6 +28,20 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
+    public virtual void Heal (int healthPoints)
+    {
+        int temp = currentHealth + healthPoints;
+
+        if (temp > maxHealth)
+        {
+            currentHealth = maxHealth;
+        } else
+        {
+            currentHealth = temp;
+        }
+    }
+
+
     public virtual void Die()
     {
         Debug.Log(transform.name + " has died.");
