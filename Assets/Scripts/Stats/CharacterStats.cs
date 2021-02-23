@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterStats : MonoBehaviour
+public class CharacterStats : MonoBehaviour // followed this tutorial: https://www.youtube.com/watch?v=e8GmfoaOB4Y&ab_channel=Brackeys
 {
     public int maxHealth = 50;
     public int currentHealth { get; private set; }

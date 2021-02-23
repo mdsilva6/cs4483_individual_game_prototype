@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AgentController : MonoBehaviour
+public class AgentController : MonoBehaviour // used  https://www.youtube.com/watch?v=S2mK6KFdv0I&ab_channel=Brackeys as a guide
 {
     IPlayerInput input;
     AgentMovement movement;

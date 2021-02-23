@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryUI : MonoBehaviour
+public class InventoryUI : MonoBehaviour // followed this tutorial: https://www.youtube.com/watch?v=YLhj7SfaxSE&ab_channel=Brackeys
 {
 
     public Transform itemsParent;

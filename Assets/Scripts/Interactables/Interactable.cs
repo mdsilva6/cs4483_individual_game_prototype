@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactable : MonoBehaviour
+public class Interactable : MonoBehaviour // based off of this tutorial https://www.youtube.com/watch?v=HQNl3Ff2Lpo
 {
 
     public float radius = 3.0f;

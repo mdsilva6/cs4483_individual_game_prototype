@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemPickup : Interactable
+public class ItemPickup : Interactable // based off of this tutorial https://www.youtube.com/watch?v=HQNl3Ff2Lpo
 {
     public Item item;
     

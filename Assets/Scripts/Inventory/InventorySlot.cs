@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour
+public class InventorySlot : MonoBehaviour // followed this tutorial: https://www.youtube.com/watch?v=YLhj7SfaxSE&ab_channel=Brackeys
 {
     Item item;
 

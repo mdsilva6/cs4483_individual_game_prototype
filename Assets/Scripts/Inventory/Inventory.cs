@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class Inventory : MonoBehaviour // based off of this tutorial https://www.youtube.com/watch?v=HQNl3Ff2Lpo
 {
     public static Inventory instance;
 

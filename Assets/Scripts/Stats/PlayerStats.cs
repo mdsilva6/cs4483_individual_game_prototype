@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerStats : CharacterStats
+public class PlayerStats : CharacterStats // followed this tutorial: https://www.youtube.com/watch?v=e8GmfoaOB4Y&ab_channel=Brackeys
 {
     public Text healthPoints;
     public Text staminaPoints;

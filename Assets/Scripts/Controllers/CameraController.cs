@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class CameraController : MonoBehaviour // used  https://www.youtube.com/watch?v=S2mK6KFdv0I&ab_channel=Brackeys as a guide
 {
     public Transform target;
 

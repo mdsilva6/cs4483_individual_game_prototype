@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Animator))]
-public class AgentAutoMove : MonoBehaviour
+public class AgentAutoMove : MonoBehaviour // based on  https://www.youtube.com/watch?v=S2mK6KFdv0I&ab_channel=Brackeys
 {
     Animator anim;
     NavMeshAgent agent;
