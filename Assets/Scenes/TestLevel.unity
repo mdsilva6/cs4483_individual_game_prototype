@@ -2316,6 +2316,7 @@ MonoBehaviour:
   radius: 2
   player: {fileID: 543450651760912910}
   isInteracting: 0
+  lootForPlayer: {fileID: 0}
 --- !u!114 &527327008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2400,6 +2401,7 @@ MonoBehaviour:
   radius: 3
   player: {fileID: 0}
   isInteracting: 0
+  lootForPlayer: {fileID: 11400000, guid: 861d72dde6835994db8b2b63e36b6c81, type: 2}
 --- !u!114 &570268051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2425,7 +2427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3daf240b7a6968740a5d44a7bc9dc060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 20
   damage:
     baseValue: 5
   armour:
@@ -2849,6 +2851,7 @@ MonoBehaviour:
   radius: 2
   player: {fileID: 543450651760912910}
   isInteracting: 0
+  lootForPlayer: {fileID: 0}
 --- !u!54 &752419045
 Rigidbody:
   m_ObjectHideFlags: 0

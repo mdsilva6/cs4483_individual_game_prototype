@@ -10,6 +10,10 @@ public class Enemy : Interactable
     Animator animator;
     PlayerStats playerStats;
 
+    Inventory inventory;
+
+    public Item lootForPlayer;
+
     void Start()
     {
         base.Start();
@@ -17,6 +21,7 @@ public class Enemy : Interactable
         myStats = GetComponent<CharacterStats>();
         animator = playerManager.player.GetComponent<Animator>();
         playerStats = playerManager.player.GetComponent<PlayerStats>();
+        inventory = playerManager.player.GetComponent<Inventory>();
     }
 
     void Update()
@@ -25,6 +30,11 @@ public class Enemy : Interactable
         if (myStats.currentHealth <= 0)
         {
             playerStats.AddXP(myStats.experienceValue);
+            if (lootForPlayer != null)
+            {
+                Debug.Log("Player gets " + lootForPlayer.name);
+                inventory.AddToInventory(lootForPlayer);
+            }
         }
     }
     
