@@ -1,35 +1,40 @@
 # cs4483_individual_game_prototype
 
+## Controls
+
+The player can move around using WASD and interact/attack by right clicking. 
+
 ## Condensed Requirements
+These requirements were extracted from my game pitch and itemized. The requirements that have not been implemented are marked with "(NOT IMPLEMENTED)" after them. Please note that I followed [this](https://www.youtube.com/watch?v=S2mK6KFdv0I&ab_channel=Brackeys) tutorial for implemented the inventory and equipment system.
 
 1. Challenges  
-1.1. Periodic damage from the conditions of the frozen wasteland.  
-1.2. Needing to hunt creatures for food.  
-1.3. Limited inventory  
+1.1. Periodic damage from the conditions of the frozen wasteland. (Players will lose one HP every second that they are not in shelter)
+1.2. Needing to hunt creatures for food. (Players will need to loot creatures to get food and potions to heal)
+1.3. Limited inventory (Players have limited inventory slots)
 
 2. Player Actions  
-2.1. Movement: walking, running, jumping.  
-2.2. Vehicles: Drivable vehicles and Rideable Animals  
-2.3. Hunting  
-2.4. Crafting  
-2.5. Lockpicking  
+2.1. Movement: walking, running, jumping.  (Did not implment jumping)   
+2.2. Vehicles: Drivable vehicles and Rideable Animals (NOT IMPLEMENTED)   
+2.3. Hunting (Passive mobs, the green prism, drop loot)   
+2.4. Crafting (NOT IMPLEMENTED)   
+2.5. Lockpicking (NOT IMPLEMENTED)   
 
-3. Skill Trees  
-3.1. Melee: The player can use one handed (sword and dagger or shield) or two handed weapons (two handed sword/hammer/axe).  
-3.2. Ranged: The player player can use a variety of weapons, projectile (crossbow or longbow) and energy based (rifles).  
-3.3. Magic: The player can use magic attacks that can be precise or AoE (are of affect) to inflict damage on groups of enemies or a single target.  
+3. Skill Trees (I did not implement any of these skill trees, currently the player will attack unarmed by right clicking the enemy)
+3.1. Melee: The player can use one handed (sword and dagger or shield) or two handed weapons (two handed sword/hammer/axe). (NOT IMPLEMENTED)   
+3.2. Ranged: The player player can use a variety of weapons, projectile (crossbow or longbow) and energy based (rifles). (NOT IMPLEMENTED)   
+3.3. Magic: The player can use magic attacks that can be precise or AoE (are of affect) to inflict damage on groups of enemies or a single target. (NOT IMPLEMENTED)   
 
 4. Environment  
-4.1. Creatures  
-4.1.1. Aggressive creatures: Will attack you if you come in proximity to them.  
-4.1.2. Docile creatures: Will not attack you if you come in proximity. When attacked, will either retaliate or attack you.   
-4.2. Ruins: the player can explore ruins and find chests.  
-4.2.1. Vaults: Some ruins contain vaults where the player can absorb or release the orb’s lifeforce.  
-4.3. Shelter: Areas where the player can set up camp, craft items and rest to heal.  
+4.1. Creatures (For my prototype I implemented three type of mob)   
+4.1.1. Aggressive creatures: Will attack you if you come in proximity to them. (The red prism)   
+4.1.2. Docile creatures: Will not attack you if you come in proximity. When attacked, will either retaliate or attack you. (The green prism will flee from the player and the orange prism will fight back)   
+4.2. Ruins: the player can explore ruins and find chests. (NOT IMPLEMENTED)   
+4.2.1. Vaults: Some ruins contain vaults where the player can absorb or release the orb’s lifeforce. (NOT IMPLEMENTED)   
+4.3. Shelter: Areas where the player can set up camp, craft items and rest to heal. (The prototype has a structure that will shield the player from the elements).
 4.4. Settlements: These are areas that are populated by NPCs. There are three types of settlements:  
-4.4.1. Telosian: These NPCs will not attack the player, and the player can trade and sell their items here.   
-4.4.2. Raider: These settlements are populated by the people responsible for the player’s vault being disturbed. These NPCs will be hostile towards the player.  
-4.4.3. Telosian (Vault): These settlements are populated by occupants of a vault where the player chooses to release the energy back into Telos.  
+4.4.1. Telosian: These NPCs will not attack the player, and the player can trade and sell their items here.   (NOT IMPLEMENTED)   
+4.4.2. Raider: These settlements are populated by the people responsible for the player’s vault being disturbed. These NPCs will be hostile towards the player.  (NOT IMPLEMENTED)   
+4.4.3. Telosian (Vault): These settlements are populated by occupants of a vault where the player chooses to release the energy back into Telos. (NOT IMPLEMENTED)   
 
 ### Table of Contents
 1. [Challenges](#Challenges)
