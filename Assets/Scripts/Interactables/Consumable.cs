@@ -38,5 +38,6 @@ public class Consumable : Item
             playerStats.Heal(healthAddValue);
             playerStats.Reengergize(staminaAddValue);
         }
+        RemoveFromInventory();
     }
 }
