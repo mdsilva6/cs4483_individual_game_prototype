@@ -6,7 +6,8 @@ public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
 
-    public bool playerInCombat;
+    public bool playerInCombat = false;
+    public bool inShelter = false;
 
     void Awake()
     {

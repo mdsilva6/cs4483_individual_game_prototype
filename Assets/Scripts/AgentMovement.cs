@@ -9,6 +9,9 @@ public class AgentMovement : MonoBehaviour
 
     CharacterController controller;
     Animator animator;
+
+    PlayerManager playerManager;
+
     public float rotationSpeed, gravity = 20f;
     public float movementSpeed = 2f;
     Vector3 movementVector = Vector3.zero;
@@ -29,6 +32,7 @@ public class AgentMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        playerManager = PlayerManager.instance;
         controller.enabled = true;
         animator.enabled = true;
         cameraTransform = Camera.main.transform;
@@ -139,7 +143,14 @@ public class AgentMovement : MonoBehaviour
             PickUpOrb(gameObject);
             gameObject.SetActive(false);
         }
-     
+
+        if (gameObject.tag == "Door")
+        {
+            playerManager.inShelter = !playerManager.inShelter;
+            Debug.Log("inShelter = " + playerManager.inShelter);
+
+        }
+
     }
 
     //private void OnCollisionEnter(Collision collision)
