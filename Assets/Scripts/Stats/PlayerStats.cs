@@ -7,13 +7,19 @@ public class PlayerStats : CharacterStats
 {
     public Text healthPoints;
     public Text staminaPoints;
+    public Text experiencePointsText;
 
     public int maxStamina = 100;
     public int currentStamina { get; private set; }
 
+    public int experiencePoints { get; private set; }
+
+    public int level;
+
     private void Awake()
     {
         currentStamina = maxStamina;
+        experienceValue = 0;
     }
     void Start()
     {
@@ -33,12 +39,13 @@ public class PlayerStats : CharacterStats
         if (currentHealth > 0)
         {
             healthPoints.text = currentHealth.ToString();
-            staminaPoints.text = currentStamina.ToString();
         }
         else
         {
             Die();
         }
+        staminaPoints.text = currentStamina.ToString();
+        experiencePointsText.text = experiencePoints.ToString();
     }
 
     void OnEquipmentChanged(Equipment newEquipment, Equipment oldEquipment)
@@ -85,5 +92,11 @@ public class PlayerStats : CharacterStats
     {
         // play death animation
         healthPoints.text = "Dead: play death animation";
+    }
+
+    public void AddXP(int experience)
+    {
+        Debug.Log("adding xp");
+        experiencePoints += experience;
     }
 }

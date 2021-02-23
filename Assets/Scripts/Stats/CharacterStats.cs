@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public int maxHealth = 50;
     public int currentHealth { get; private set; }
     
     public Stat damage;
-    public Stat armour; 
+    public Stat armour;
+
+    public int experienceValue = 50;
 
     void Awake()
     {

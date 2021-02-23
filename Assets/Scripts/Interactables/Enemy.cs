@@ -8,6 +8,7 @@ public class Enemy : Interactable
     PlayerManager playerManager;
     CharacterStats myStats;
     Animator animator;
+    PlayerStats playerStats;
 
     void Start()
     {
@@ -15,11 +16,16 @@ public class Enemy : Interactable
         playerManager = PlayerManager.instance;
         myStats = GetComponent<CharacterStats>();
         animator = playerManager.player.GetComponent<Animator>();
+        playerStats = playerManager.player.GetComponent<PlayerStats>();
     }
 
     void Update()
     {
         base.Update();
+        if (myStats.currentHealth <= 0)
+        {
+            playerStats.AddXP(myStats.experienceValue);
+        }
     }
     
     public override void Interact()
