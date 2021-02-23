@@ -2,7 +2,7 @@
 
 ## Controls
 
-The player can move around using WASD and interact/attack by right clicking. 
+The player can move around using W to move forward (using SHIFT to run) and A and D to rotate the camera and interact/attack by right clicking. 
 
 ## Condensed Requirements
 These requirements were extracted from my game pitch and itemized. The requirements that have not been implemented are marked with "(NOT IMPLEMENTED)" after them. Please note that I followed [this](https://www.youtube.com/watch?v=S2mK6KFdv0I&ab_channel=Brackeys) tutorial for implemented the inventory and equipment system.
