@@ -33,7 +33,7 @@ These requirements were extracted from my game pitch and itemized. The requireme
 4.3. Shelter: Areas where the player can set up camp, craft items and rest to heal. (The prototype has a structure that will shield the player from the elements)   
 4.4. Settlements: These are areas that are populated by NPCs. There are three types of settlements:  
 4.4.1. Telosian: These NPCs will not attack the player, and the player can trade and sell their items here.   (NOT IMPLEMENTED)    
-4.4.2. Raider: These settlements are populated by the people responsible for the player’s vault being disturbed. These NPCs will be hostile towards the player.  (NOT IMPLEMENTED)   
+4.4.2. Raider: These settlements are populated by the people responsible for the player’s vault being disturbed. These NPCs will be hostile towards the player.  (Same placeholder as the agressive creature (Red prism))   
 4.4.3. Telosian (Vault): These settlements are populated by occupants of a vault where the player chooses to release the energy back into Telos. (NOT IMPLEMENTED)   
 
 ### Table of Contents
