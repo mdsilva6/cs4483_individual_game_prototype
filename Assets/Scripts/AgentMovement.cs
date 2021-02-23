@@ -30,6 +30,7 @@ public class AgentMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         controller.enabled = true;
+        animator.enabled = true;
         cameraTransform = Camera.main.transform;
     }
 

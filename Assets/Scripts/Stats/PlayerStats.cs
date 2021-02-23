@@ -18,8 +18,27 @@ public class PlayerStats : CharacterStats
     void Start()
     {
         EquipmentManager.instance.onEquipmentChangedCallback += OnEquipmentChanged;
-        healthPoints.text = currentHealth.ToString();
-        staminaPoints.text = currentStamina.ToString();
+        UpdateHud();
+        Heal(maxHealth - currentHealth);
+    }
+
+    void FixedUpdate()
+    {
+        UpdateHud();
+    }
+
+    void UpdateHud()
+    {
+
+        if (currentHealth > 0)
+        {
+            healthPoints.text = currentHealth.ToString();
+            staminaPoints.text = currentStamina.ToString();
+        }
+        else
+        {
+            Die();
+        }
     }
 
     void OnEquipmentChanged(Equipment newEquipment, Equipment oldEquipment)
@@ -41,22 +60,18 @@ public class PlayerStats : CharacterStats
     {
         base.TakeDamage(damage);
 
-        if (currentHealth > 0)
-        {
-            healthPoints.text = currentHealth.ToString();
-        }
-        else
-        {
-            healthPoints.text = "Dead: play death animation";
-        }
+        UpdateHud();
 
     }
 
-    void Reengergize(int staminaAmount)
+    public void Reengergize(int staminaAmount)
     {
         int temp = currentStamina + staminaAmount;
-
-        if (temp > maxStamina)
+        if (currentStamina == maxStamina)
+        {
+            Debug.Log("Already at maxStamina");
+        }
+        else if (temp > maxStamina)
         {
             currentStamina = maxStamina;
         }
@@ -66,14 +81,9 @@ public class PlayerStats : CharacterStats
         }
     }
 
-    public void UseItem(Consumable item)
-    {
-        Heal(item.healthAddValue);
-        Reengergize(item.staminaAddValue);
-    }
-
     public override void Die()
     {
         // play death animation
+        healthPoints.text = "Dead: play death animation";
     }
 }
