@@ -27,7 +27,7 @@
 4.2.1. Vaults: Some ruins contain vaults where the player can absorb or release the orb’s lifeforce.  
 4.3. Shelter: Areas where the player can set up camp, craft items and rest to heal.  
 4.4. Settlements: These are areas that are populated by NPCs. There are three types of settlements:  
-4.4.1. Telosian: These NPCs will not attack the player, and the player can trade and sell their items here. 
+4.4.1. Telosian: These NPCs will not attack the player, and the player can trade and sell their items here.   
 4.4.2. Raider: These settlements are populated by the people responsible for the player’s vault being disturbed. These NPCs will be hostile towards the player.  
 4.4.3. Telosian (Vault): These settlements are populated by occupants of a vault where the player chooses to release the energy back into Telos.  
 
@@ -89,7 +89,7 @@ Areas where the player can set up camp, craft items and rest to heal.
 ### 4.4.	Settlements
 These are areas that are populated by NPCs. There are three types of settlements: 
 #### 4.4.1.	Telosian
-These settlements are populated by the descendants of the Telosians who did not go into stasis in the vaults. These NPCs will not attack the player, and the player can trade and sell their items here.  
+These settlements are populated by the descendants of the Telosians who did not go into stasis in the vaults. These NPCs will not attack the player, and the player can trade and sell their items here.
 #### 4.4.2.	Raider
 These settlements are populated by the people responsible for the player’s vault being disturbed. These NPCs will be hostile towards the player.  
 #### 4.4.3.	Telosian (Vault)
